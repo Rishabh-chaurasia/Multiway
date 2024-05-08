@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiway-Express</title>
+    <link rel="stylesheet" href="../style/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header class="index-header">
+        <div class="div-logo">
+            <img class="logo-img" src="../image/logo5.jpg" width="120" height="70" alt="avtar">
+            <span class="logo-text">Multiway-Express</span>
+        </div>
+        <nav class="header-nav">
+            <a id="lgout" style="display: none;" onclick="logout()" href="javascript:void(0)">Logout</a>
+            <a id="signa" href="#register">Signup</a>
+            <a id="lg" href="/login">Login</a>
+            <a href="/book">Book</a>
+            <a href="/track">Track</a>
+            <a href="/history">History</a>
+            <a href="/about">About</a>
+            <a href="#">Help</a>
+        </nav>
+    </header>
+    <div class="site-content">
+        <div class="image-content">
+            <h3 class="quote">Your Ultimate Delivery Route Wizard</h3>
+        </div>
+        <section class="register" id="register">
+            <div>
+                <h2>Sign Up / Register</h2>
+                <form id="signup-form">
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password">
+                    <input type="submit" id="get-otp-button" value="Submit" />
+                    <p id="msg_p" style="font-size: 14px; text-align: center; color: red; margin: 10px 0;"></p>
+                </form>
+                <section class="enter_otp hidden">
+                    <h2>Enter OTP</h2>
+                    <input type="text" name="otp" placeholder="OTP">
+                    <button type="submit">Register</button>
+                </section>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        const signupForm = document.getElementById("signup-form");
+
+        // Add an event listener to the form.
+        signupForm.addEventListener("submit", function (event) {
+            // Prevent the form from submitting by default.
+            event.preventDefault();
+
+            // Get the values of the input boxes.
+            const name = signupForm.querySelector("input[name='name']").value;
+            const phoneNumber = signupForm.querySelector("input[name='phone']").value;
+            const email = signupForm.querySelector("input[name='email']").value;
+            const password = signupForm.querySelector("input[name='password']").value;
+            const confirmPassword = signupForm.querySelector("input[name='confirm_password']").value;
+
+            // Validate the input.
+            if (!name || name.length === 0) {
+                $("#msg_p").text("Please enter your name.");
+                return;
+            }
+
+            if (!phoneNumber || phoneNumber.length === 0) {
+                $("#msg_p").text("Please enter your phone number.");
+                return;
+            }
+
+            if (!email || email.length === 0) {
+                $("#msg_p").text("Please enter your email address.");
+                return;
+            }
+
+            if (!password || password.length === 0) {
+                $("#msg_p").text("Please enter a password.");
+                return;
+            }
+
+            if (!confirmPassword || confirmPassword !== password) {
+                $("#msg_p").text("The confirm password does not match the password.");
+                return;
+            }
+
+            var form2 = event.target;
+            var formData2 = new FormData(form2);
+
+            fetch('/signup', {
+                method: 'POST',
+                body: formData2
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.uniqueEmail == true) {
+                        const date = new Date();
+                        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+                        const expires = "expires=" + date.toUTCString();
+                        document.cookie = "userid=" + data.userid + ";" + expires + ";path=/";
+                        $("#msg_p").text("You have successfully registered.").css('color', 'green');
+                        $('#lgout').show();
+                        $('#lg').hide();
+                    }
+                    else if (data.uniqueEmail == false) {
+                        $("#msg_p").text("This email is already exit. Please enter another one.").css('color', 'red');
+                    }
+                })
+                .catch(error => {
+                    $("#msg_p").text("Something went wrong. Please try again.");
+                });
+
+        });
+
+
+        function logout() {
+            $('#signa').show();
+            $('#lg').show();
+            $('#lgout').hide();
+            $('#register').show();
+            document.cookie = "userid= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            window.location.href = "/";
+        }
+
+
+        function getCookie1(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        var user_sn1 = getCookie1("userid");
+
+        if (user_sn1) {
+            $('#lg').hide();
+            $('#signa').hide();
+            $('#lgout').show();
+            $('#register').hide();
+
+        }
+        else {
+            $('#lg').show();
+            $('#signa').show();
+            $('#register').show();
+            $('#lgout').hide();
+        }
+    </script>
+</body>
+
+</html>

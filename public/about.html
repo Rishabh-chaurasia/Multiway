@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style/about.css">
+  <style>
+    .about-section {
+      padding: 50px 0;
+      margin: 0 auto;
+      max-width: 800px;
+      background-color: #f2f2f2;
+    }
+
+    .about-section h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav1">
+    <h2>
+      Multiway-Express
+    </h2>
+    <div class="div1">
+      <a href="/">Home</a>
+
+      <a href="/book">Book</a>
+      <a href="/track">Track</a>
+      <a href="/history">History</a>
+      <a href="/about">About</a>
+      <a href="#">Help</a>
+      <a id="lgout" style="display: none;" onclick="logout()" href="javascript:void(0)">Logout</a>
+
+    </div>
+  </nav>
+
+  <section class="about-section">
+    <h2>Revolutionizing Parcel Delivery</h2>
+
+    <p>
+      Multiway-Express is transforming the logistics industry by introducing a revolutionary approach to parcel delivery. We break down traditional delivery chains into multiple sub-journeys, utilizing existing resources like local courier companies, road, rail, and air transportation systems to optimize efficiency and speed. This multi-party collaboration system significantly reduces delivery times while maintaining cost-effectiveness and service quality.
+
+      Our intelligent algorithms analyze various routes and transportation options, considering factors such as cost, time, and quality, to present clients with the most suitable delivery solution. Clients can choose the route that aligns with their specific needs and preferences, ensuring a seamless and personalized delivery experience.
+
+      Multiway-Express is committed to providing innovative and sustainable logistics solutions that empower businesses and individuals to send and receive parcels with greater efficiency, speed, and flexibility. Join us in revolutionizing parcel delivery and experience the future of logistics.
+    </p>
+  </section>
+
+  <script>
+    function logout() {
+      $('#lgout').hide();
+      document.cookie = "userid= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+      window.location.href = "/";
+    }
+  </script>
+</body>
+</html>

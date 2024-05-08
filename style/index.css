@@ -1,0 +1,281 @@
+/* body {
+    margin: 0px;
+  }
+  {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .index-header{
+    position: fixed;
+    left:0px;
+    right: 0px;
+    height: 100px;
+    width: 100%;
+    background-color: grey;
+    z-index: 100;
+  }
+  
+  .div-logo{
+    height: 10%;
+    text-align: center;
+    margin: 0px;
+    float: left;
+}
+.logo-text{
+    display: block;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.header-nav{
+  float: right;
+  height: 100%;
+}
+ .header-nav a{
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  padding-top: 12%;
+  display: inline-block;
+ }
+ .image-content{
+  background-image: url(photo1.jpg);
+  height: 1100px;
+  width: 100%;
+  text-align: center;
+}
+.quote{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  top: 10%;
+} 
+.site-content{
+  position: absolute;
+  top: 70px;
+  width: 100%;
+}
+  header nav a {
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    position: relative;
+  }
+  nav a:hover{
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .register {
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  .register h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .register form {
+    display: flex;
+    flex-direction:column;
+  }
+  
+  .register input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .register button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .enter_otp {
+    display: none;
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  .enter_otp h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .enter_otp input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .enter_otp button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  } */
+  <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        .index-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background-color: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .div-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 700;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .header-nav a:hover {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .image-content {
+            background-image: url('../image/photo2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 800px;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quote {
+            color: seagreen;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .site-content {
+            margin-top: 100px;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+        .register {
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 100px 0 70px;
+            background-color: whitesmoke;
+        }
+
+        .register>div {
+            max-width: 500px;
+            width: 400px;
+            padding: 30px 40px 10px;
+            border-radius: 15px;
+            border: 2px solid rgb(227, 227, 227);
+        }
+
+        .register h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .register form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .register input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 9px;
+            border: 2px solid rgb(203, 203, 203);
+        }
+
+        #get-otp-button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        #get-otp-button:hover {
+            background-color: #0056b3;
+        }
+
+        .enter_otp {
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .enter_otp h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>

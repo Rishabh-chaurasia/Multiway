@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/index3.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="login-vertical">LOGIN</h1>
+        <div class="login">
+            <div class="login-tilted"></div>
+            <div class="user">
+                <i class="ri-user-fill"></i>
+            </div>
+            <h1 class="login-title">LOGIN</h1>
+            <form action="/login" id="login-form">
+                <input type="text" name="email" placeholder="USERNAME" class="username">
+                <input type="password" name="password" placeholder="PASSWORD" class="password">
+                <div class="login-btn">
+                    <input type="submit" value="Login">
+                </div>
+                <p id="msg_p" style="font-size: 15px; text-align: center; color: red; margin: 10px 0;"></p>
+            </form>
+            <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener("submit", function (event) {
+            // Prevent the form from submitting by default.
+            event.preventDefault();
+            var form2 = event.target;
+            var formData2 = new FormData(form2);
+
+            fetch('/login', {
+                method: 'POST',
+                body: formData2
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.uniqueEmail == true) {
+                        const date = new Date();
+                        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+                        const expires = "expires=" + date.toUTCString();
+                        document.cookie = "userid=" + data.userid + ";" + expires + ";path=/";
+                        $("#msg_p").text("You are logged in.").css('color', 'green');
+                        window.location.href = "/";
+                      
+                    }
+                    else if (data.uniqueEmail == false) {
+                        if(data.password == false){
+                            $("#msg_p").text("Password doesnot match.").css('color', 'red');
+                        }
+                        else{
+                            $("#msg_p").text("Email doesnot match. Please enter another one.").css('color', 'red');
+                        }
+                    }
+                })
+                .catch(error => {
+                    $("#msg_p").text("Something went wrong. Please try again.");
+                });
+
+        });
+    </script>
+</body>
+
+</html>

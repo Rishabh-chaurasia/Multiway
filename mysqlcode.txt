@@ -1,0 +1,24 @@
+create database multiway;
+use multiway;
+
+create table signup (
+    sn int auto_increment not null unique,
+    userid varchar(70) not null  primary key,
+    name varchar(50) not null,
+    phone bigint not null,
+    email varchar(100) not null,
+    password varchar(100),
+    sign_date date not null DEFAULT (CURRENT_DATE),
+    sign_time time DEFAULT (CURRENT_TIME)
+);
+
+
+create table track (
+    sn int auto_increment not null primary key,
+    trackingId varchar(40) not null,
+    userid varchar(64) default '---',
+    currentLocation varchar(200),
+    status varchar(64),
+    expectedDeliveryDate date
+
+);

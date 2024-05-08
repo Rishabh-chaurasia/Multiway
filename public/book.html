@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking</title>
+  <!-- <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/> -->
+
+  <!-- <link rel="stylesheet" type="text/css" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css">  -->
+  <link rel="stylesheet" href="../style/book.css">
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <script>"https:www.mapquestapi.com/directions/v2/optimizedroute"</script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ 
+<script type="text/javascript">
+  window.onload = function () {
+    placeSearch({
+      key: '4Tv9qpHovkKYZSJlBkE94ywiWEKp5AWK',
+      container: document.querySelector('#source_postal_code'),
+      useDeviceLocation: true,
+      collection: [
+        'poi',
+        'airport',
+        'address',
+        'adminArea',
+      ]
+    });
+  };
+  </script>
+
+</head>
+<body>
+  <div class="full_body">
+  <header>
+    <div id="map"></div>
+
+    <nav class="nav1">
+      <h2>
+       Multiway-Express
+      </h2>
+     <div class="div1">
+      <a href="/">Home</a>
+
+      <a href="/book">Book</a>
+      <a href="/track">Track</a>
+      <a href="/history">History</a>
+      <a href="/about">About</a>
+      <a href="#">Help</a>
+      <a id="lgout" style="display: none;" onclick="logout()" href="javascript:void(0)">Logout</a>
+
+     </div>
+    </nav>
+  </header>
+  <main>
+    <section class="search">
+      <input type="text" id="source_postal_code" placeholder="Source Postal Code">
+      <button type="button" id="search-button">Search</button>
+    </section>
+    <section id="results">
+      <h2>Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Cost</th>
+            <th>Duration</th>
+            <th>Get Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Results will be displayed here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Multiway-Express</p>
+  </footer>
+  <style>
+    .search{
+      display: flex;
+    }
+    #source_postal_code{
+      width: 200px;
+    }
+    #search-button{
+      width: 100px;
+      height:38px;
+    }
+  </style>
+  <script src="../js/book.js"></script>
+  <script>
+    function logout() {
+            $('#lgout').hide();
+            document.cookie = "userid= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            window.location.href = "/";
+        }
+  </script>
+</div>
+</body>
+</html>

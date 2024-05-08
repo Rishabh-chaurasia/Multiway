@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .full_body{
+    font-size: 18px;
+    background-image: url(../image/book.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+    background-position: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+}
+  main {
+    padding: 1px;
+  }
+  
+  section {
+    margin-bottom: 180px;
+  }
+  .search {
+    
+    width: 500px;
+    margin-bottom: 10;
+  }
+  
+  .search input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  } 
+  
+   .search button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  h2 {
+    margin-top: 100;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+    background-color: cornsilk;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1px;
+    background-color: #333;
+    color: white;
+    margin-top: 300px;
+  }
+  

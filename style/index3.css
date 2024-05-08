@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap');
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 1500px;
+    height: 800px;
+    background: conic-gradient(from -45deg, #ca49f7, #5a8ade, #62c6e0, #ca49f7);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.login-vertical {
+    transform: rotate(-90deg);
+    position: absolute;
+    font-size: 10rem;
+    letter-spacing: 25px;
+    color: rgb(255 255 255 / 15%);
+    left: -300px;
+}
+
+.login {
+    width: 80%;
+    height: 75%;
+    background: rgb(213 215 234 / 90%);
+    border-radius: 5px;
+    position: relative;
+}
+
+.login .login-tilted {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 150px;
+    background: radial-gradient(circle at 0 0, white 20%, transparent 50%);
+    transform: rotate(-30deg);
+    left: 225px;
+    top: -150px;
+    mix-blend-mode: overlay;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
+}
+
+.login .user {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
+}
+
+.login .user i {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ca49f7 30%, #5a8ade 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 3px rgb(0 0 0 / 10%);
+}
+
+.login .login-title {
+    position: absolute;
+    top: 115px;
+    left: 230px;
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    background: linear-gradient(90deg, #5a8ade, #ca49f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 3px rgb(0 0 0 / 10%);
+}
+
+.login .username {
+    position: absolute;
+    top: 200px;
+    left: 230px;
+}
+
+.login .password {
+    position: absolute;
+    top: 260px;
+    left: 250px;
+}
+
+input {
+    background: #e7e7e7;
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    border: 1px solid #d8d8d8;
+    border-radius: 20px;
+}
+
+::placeholder {
+    font-weight: bold;
+    font-size: 10px;
+    color: #a7a7a7;
+}
+
+.login .login-btn {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to right, #5a8ade, #ca49f7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 290px;
+    top: 320px;
+    border-radius: 50%;
+}
+
+.login .login-btn i {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.login .forgot {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 10px;
+    font-weight: 400;
+    color: #a7a7a7;
+    text-decoration: none;
+}
